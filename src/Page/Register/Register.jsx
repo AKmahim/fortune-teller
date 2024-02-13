@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getRandomNumber } from '../../utilities/randomNumber';
+import { getRandomNumber, getRandomPrediction } from '../../utilities/randomNumber';
 import './Register.css'
 import logo from "../../assets/logo.png";
 import card1 from "../../assets/card-1.png";
@@ -31,6 +31,7 @@ const Register = () => {
             const formData = new FormData();
             formData.append('user_name', userName);
             formData.append('card',getRandomNumber());
+            formData.append('prediction',getRandomPrediction());
     
             const response = await fetch('https://sunquick-scoreboard.xri.com.bd/fortune-teller/store-user', {
               method: 'POST',
