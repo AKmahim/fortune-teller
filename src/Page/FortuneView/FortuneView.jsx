@@ -3,8 +3,10 @@ import { TypeAnimation } from "react-type-animation";
 import bname from "../../assets/fortune-teller.png";
 import tia from "../../assets/tia.png";
 import logo from "../../assets/logo.png";
+import { useNavigate, useNavigation } from "react-router-dom";
 
 const FortuneView = () => {
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [predictions, setPredictions] = useState([]);
   const [predictionNumber, setPredictionNumber] = useState(null);
@@ -22,6 +24,21 @@ const FortuneView = () => {
     const movies = await response.json();
     setName(movies.user_name);
   }
+
+  useEffect(() => {
+      const handleKeyPress = (event) => {
+          console.log(event.key);
+          if (event.key === 'X' || event.key === 'x') {
+              navigate("/");
+          }
+      };
+
+      document.addEventListener('keydown', handleKeyPress);
+
+      return () => {
+          document.removeEventListener('keydown', handleKeyPress);
+      };
+  }, []);
 
   return (
     <>
