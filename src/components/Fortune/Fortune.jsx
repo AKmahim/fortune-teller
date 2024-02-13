@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import logo from "../../assets/logo.png";
 import card1 from "../../assets/card-1.png";
 import card2 from "../../assets/card-2.png";
@@ -11,7 +11,9 @@ import { useNavigate } from 'react-router-dom';
 
 const Fortune = () => {
     const [url, setUrl] = useState('');
+    const [cardNumber,setCardNumber] = useState('');
     const navigate = useNavigate();
+    const [fortuneURL, setFortuneURL] = useState('');
 
     const handleChange = (e) => {
         e.preventDefault();
@@ -25,6 +27,18 @@ const Fortune = () => {
         // // Redirect to the pasted URL
         // window.location.href = pasteURL;
     };
+    useEffect(()=>{
+        fetch('https://sunquick-scoreboard.xri.com.bd/fortune-teller/last-user')
+        .then(res => res.json())
+        .then((data) => {
+            setCardNumber(data.card)
+            setFortuneURL(`/fortune-view?q=${cardNumber}`);
+            
+        })
+        console.log(cardNumber,fortuneURL);
+
+        
+    },[cardNumber,fortuneURL]);
     return (
         <div>
            

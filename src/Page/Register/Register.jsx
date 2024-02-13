@@ -55,7 +55,7 @@ const Register = () => {
         if (userName) {
           storeUserName();
         }
-      }, []);
+      }, [userName]);
     return (
         <>
       <section className="relative bg-[#F38AAA] bg-[url('/src/assets/bg-2.png')] bg-cover bg-center bg-no-repeat bgbg bg-fixed h-screen">
