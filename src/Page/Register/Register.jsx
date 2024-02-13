@@ -2,10 +2,6 @@ import { useEffect, useState } from 'react';
 import { getRandomNumber, getRandomPrediction } from '../../utilities/randomNumber';
 import './Register.css'
 import logo from "../../assets/logo.png";
-import card1 from "../../assets/card-1.png";
-import card2 from "../../assets/card-2.png";
-import card3 from "../../assets/card-3.png";
-import card4 from "../../assets/card-4.png";
 import name from "../../assets/fortune-teller.png";
 import tia from "../../assets/tia.png";
 import { useNavigate } from 'react-router-dom';

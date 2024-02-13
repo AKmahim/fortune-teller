@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { TypeAnimation } from "react-type-animation";
 import bname from "../../assets/fortune-teller.png";
 import tia from "../../assets/tia.png";
 import logo from "../../assets/logo.png";
-import { useNavigate, useNavigation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const FortuneView = () => {
   const navigate = useNavigate();

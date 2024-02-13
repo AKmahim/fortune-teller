@@ -1,15 +1,5 @@
 import { useEffect, useState } from "react";
 import logo from "../../assets/logo.png";
-import card1 from "../../assets/card-1.png";
-import card2 from "../../assets/card-2.png";
-import card3 from "../../assets/card-3.png";
-import card4 from "../../assets/card-4.png";
-import card5 from "../../assets/card-5.png";
-import card6 from "../../assets/card-6.png";
-import card7 from "../../assets/card-7.png";
-import card8 from "/card-1.png";
-import card9 from "../../assets/card-9.png";
-import card10 from "../../assets/card-10.png";
 import name from "../../assets/fortune-teller.png";
 import tia from "../../assets/tia.png";
 import { useNavigate } from "react-router-dom";
