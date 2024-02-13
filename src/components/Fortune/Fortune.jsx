@@ -3,6 +3,7 @@ import logo from "../../assets/logo.png";
 import name from "../../assets/fortune-teller.png";
 import tia from "../../assets/tia.png";
 import { useNavigate } from "react-router-dom";
+import { getIdFromCode } from "../../utilities/getCodeNo";
 
 const Fortune = () => {
   const [url, setUrl] = useState("");
@@ -14,23 +15,18 @@ const Fortune = () => {
 
   const handleChange = (e) => {
     e.preventDefault();
-    console.log(e.target.code.value);
+    const code = e.target.code.value;
+    
+    console.log(getIdFromCode(code));
     e.target.code.value = "";
     navigate("/fortune-view");
-    // const pastedUrl = event.taget.value;
-    // setUrl(pastedUrl);
-    // const pasteURL = 'https://xri.com.bd';
-
-    // // Redirect to the pasted URL
-    // window.location.href = pasteURL;
+    
   };
   useEffect(() => {
     fetch("https://sunquick-scoreboard.xri.com.bd/fortune-teller/last-user")
       .then((res) => res.json())
       .then((data) => {
         setCardNumber(data.card);
-        setFortuneURL(`/fortune-view?q=${cardNumber}`);
-        setCardImage(`../../assets/card-${cardNumber}.png`);
         setCardImageNumber(cardNumber);
       });
     console.log(cardNumber, fortuneURL);
@@ -58,7 +54,7 @@ const Fortune = () => {
               <img src={name} className="w-1/4 mx-auto z-30" alt="brandName" />
             </div>
 
-            {console.log(cardImageNumber)}
+            
             <div className="relative mx-auto mt-2">
               {cardImageNumber ? (
                 <img
@@ -118,7 +114,7 @@ const Fortune = () => {
 
         <img
           src={logo}
-          className=" lg:w-28 md:w-20 w-12 absolute bottom-8 right-12"
+          className=" lg:w-28 md:w-20 w-12 absolute bottom-8 right-12 element"
           alt="logo"
         />
       </section>

@@ -4,18 +4,18 @@ import bname from "../../assets/fortune-teller.png";
 import tia from "../../assets/tia.png";
 import logo from "../../assets/logo.png";
 import { useNavigate } from "react-router-dom";
+import { getPredictionByID } from "../../utilities/Prediction";
 
 const FortuneView = () => {
   const navigate = useNavigate();
   const [name, setName] = useState("");
-  const [predictions, setPredictions] = useState([]);
-  const [predictionNumber, setPredictionNumber] = useState(null);
-  const [predictionTitle, setPredictionTitle] = useState("");
+  const [predictionNumber,setPredictionNumber] = useState("");
+  const [predictionText,setPredictionText] = useState("");
 
   useEffect(() => {
     logMovies();
     
-  }, []);
+  }, [name]);
 
   async function logMovies() {
     const response = await fetch(
@@ -23,6 +23,9 @@ const FortuneView = () => {
     );
     const movies = await response.json();
     setName(movies.user_name);
+    setPredictionNumber(movies.prediction)
+    const predictionName = await getPredictionByID(predictionNumber);
+    setPredictionText(predictionName);
   }
 
   useEffect(() => {
@@ -64,7 +67,7 @@ const FortuneView = () => {
               </p>
             )}
 
-            {  (
+            { predictionText && (
               <p className=" w-[100%] textgradient text-xl md:text-3xl lg:text-4xl emad bg-gradient-to-t from-[#eb475c] to-[#fba209] bg-clip-text font-extrabold text-transparent ">
                 <TypeAnimation
                   style={{
@@ -74,7 +77,7 @@ const FortuneView = () => {
                   }}
                   className="lg:h-[100px] lg:text-4xl "
                   sequence={[
-                    `"A special surprise is awaiting you on Eid."`,
+                    predictionText,
                     1000,
                   ]}
                 />
@@ -85,7 +88,7 @@ const FortuneView = () => {
 
         <img
           src={logo}
-          className=" lg:w-28 md:w-20 w-12 absolute bottom-8 right-12"
+          className=" lg:w-28 md:w-20 w-12 absolute bottom-8 right-12 element"
           alt="logo"
         />
       </section>
