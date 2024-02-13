@@ -30,7 +30,7 @@ const Home = () => {
 
         useEffect(() => {
             const handleKeyPress = (event) => {
-                console.log(event.keyCode);
+                // console.log(event.keyCode);
                 if (event.key === 'F' || event.key === 'f') {
                     toggleFullScreen();
                 } else if (event.key === 'M' || event.key === 'm') {

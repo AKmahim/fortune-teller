@@ -4,11 +4,15 @@ import bname from "../../assets/fortune-teller.png";
 import tia from "../../assets/tia.png";
 import logo from "../../assets/logo.png";
 
-const Page3 = () => {
+const FortuneView = () => {
   const [name, setName] = useState("");
+  const [predictions, setPredictions] = useState([]);
+  const [predictionNumber, setPredictionNumber] = useState(null);
+  const [predictionTitle, setPredictionTitle] = useState("");
 
   useEffect(() => {
     logMovies();
+    
   }, []);
 
   async function logMovies() {
@@ -37,27 +41,28 @@ const Page3 = () => {
               />
             </div>
 
-            {console.log(name)}
             {name && (
               <p className="text-3xl my-3 bg-gradient-to-t from-[#400c43] to-[#820d96] bg-clip-text font-extrabold text-transparent">
                 Welcome {name.toLocaleUpperCase()}
               </p>
             )}
 
-            <p className=" w-[100%] textgradient text-xl md:text-3xl lg:text-4xl emad bg-gradient-to-t from-[#eb475c] to-[#fba209] bg-clip-text font-extrabold text-transparent ">
-              <TypeAnimation
-                style={{
-                  whiteSpace: "pre-line",
-                  height: "100px",
-                  display: "block",
-                }}
-                className="lg:h-[100px] lg:text-4xl "
-                sequence={[
-                  `“Your horoscope advises you to\n wear pants today. Trust us,it's for the best”`,
-                  1000,
-                ]}
-              />
-            </p>
+            {  (
+              <p className=" w-[100%] textgradient text-xl md:text-3xl lg:text-4xl emad bg-gradient-to-t from-[#eb475c] to-[#fba209] bg-clip-text font-extrabold text-transparent ">
+                <TypeAnimation
+                  style={{
+                    whiteSpace: "pre-line",
+                    height: "100px",
+                    display: "block",
+                  }}
+                  className="lg:h-[100px] lg:text-4xl "
+                  sequence={[
+                    `"A special surprise is awaiting you on Eid."`,
+                    1000,
+                  ]}
+                />
+              </p>
+            )}
           </div>
         </div>
 
@@ -71,4 +76,4 @@ const Page3 = () => {
   );
 };
 
-export default Page3;
+export default FortuneView;
