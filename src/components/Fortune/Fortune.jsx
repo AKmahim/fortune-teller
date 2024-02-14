@@ -4,6 +4,7 @@ import name from "../../assets/fortune-teller.png";
 import tia from "../../assets/tia.png";
 import { useNavigate } from "react-router-dom";
 import { getIdFromCode } from "../../utilities/getCodeNo";
+import ReactCardFlip from "react-card-flip";
 
 const Fortune = () => {
   const [url, setUrl] = useState("");
@@ -38,6 +39,14 @@ const Fortune = () => {
       });
     console.log(cardNumber, fortuneURL);
   }, [cardNumber, fortuneURL, cardImage]);
+
+  const [isFlipped, setIsFlipped] = useState(false);
+
+  function handleClick() {
+    setIsFlipped(!isFlipped);
+  }
+  setInterval(handleClick, 3000);
+
   return (
     <div>
       <section className="relative bg-[#F38AAA] bg-[url('/src/assets/bg-2.png')] bg-cover bg-center bg-no-repeat bgbg bg-fixed h-screen overflow-hidden">
@@ -80,7 +89,9 @@ const Fortune = () => {
                       </svg>
                       <span className="sr-only">Info</span>
                       <div className="inline">
-                        <span className="font-medium">You Pick A Wrong Card!</span>
+                        <span className="font-medium">
+                          You Pick A Wrong Card!
+                        </span>
                       </div>
                     </div>
                   ) : (
@@ -99,7 +110,9 @@ const Fortune = () => {
                       </svg>
                       <span className="sr-only">Info</span>
                       <div className="inline">
-                        <span className="font-medium">Please Enter Your Card!</span>
+                        <span className="font-medium">
+                          Please Enter Your Card!
+                        </span>
                       </div>
                     </div>
                   )}
@@ -108,6 +121,31 @@ const Fortune = () => {
                     className="w-[15%] mx-auto "
                     alt="Card"
                   />
+                  {/* <ReactCardFlip
+                    isFlipped={isFlipped}
+                    flipDirection="horizontal"
+                    // infinite={true}
+                    flipSpeedBackToFront={1}
+                    flipSpeedFrontToBack={1}
+                  >
+                    <div>
+                      <img
+                        src={`/card-${cardImageNumber}.png`}
+                        className="w-[15%] mx-auto "
+                        alt="Card"
+                      />
+                    </div>
+                    <div>
+                      <img
+                        src={`/card-${cardImageNumber}.png`}
+                        className="w-[15%] mx-auto "
+                        alt="Card"
+                      />
+                      2690856531
+                      2690856531
+                      
+                    </div>
+                  </ReactCardFlip> */}
                 </>
               ) : (
                 <div
@@ -128,34 +166,6 @@ const Fortune = () => {
                 </div>
               )}
             </div>
-            {/* <div className="relative mx-auto ">
-              {cardImageNumber ? (
-                <img
-                  src={`/card-${cardImageNumber}.png`}
-                  className="w-[20%] mx-auto "
-                  alt="Card"
-                />
-              ) : (
-                <div
-                  role="status"
-                  className="space-y-8 animate-pulse md:space-y-0 md:space-x-8 rtl:space-x-reverse md:flex md:items-center"
-                >
-                  <div className="flex items-center justify-center w-full h-48 bg-gray-300 rounded sm:w-96 dark:bg-gray-700">
-                    <svg
-                      className="w-10 h-10 text-gray-200 dark:text-gray-600"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="currentColor"
-                      viewBox="0 0 20 18"
-                    >
-                      <path d="M18 0H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm4.376 10.481A1 1 0 0 1 16 15H4a1 1 0 0 1-.895-1.447l3.5-7A1 1 0 0 1 7.468 6a.965.965 0 0 1 .9.5l2.775 4.757 1.546-1.887a1 1 0 0 1 1.618.1l2.541 4a1 1 0 0 1 .028 1.011Z" />
-                    </svg>
-                  </div>
-
-                  <span className="sr-only">Loading...</span>
-                </div>
-              )}
-            </div> */}
           </div>
         </div>
 

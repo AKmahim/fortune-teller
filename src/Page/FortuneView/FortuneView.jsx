@@ -5,6 +5,7 @@ import tia from "../../assets/tia.png";
 import logo from "../../assets/logo.png";
 import { useNavigate } from "react-router-dom";
 import { getPredictionByID } from "../../utilities/Prediction";
+import ReactCardFlip from "react-card-flip";
 
 const FortuneView = () => {
   const navigate = useNavigate();
@@ -43,6 +44,7 @@ const FortuneView = () => {
       };
   }, []);
 
+
   return (
     <>
       <section className="relative bg-[#F4ECE1] bg-[url('/src/assets/bg-1.png')] bg-cover bg-center bg-no-repeat bgbg bg-fixed">
@@ -66,8 +68,9 @@ const FortuneView = () => {
                 Welcome {name.toLocaleUpperCase()}
               </p>
             )}
+            
 
-            { predictionText && (
+            {predictionText && (
               <p className=" w-[100%] textgradient text-xl md:text-3xl lg:text-4xl emad bg-gradient-to-t from-[#eb475c] to-[#fba209] bg-clip-text font-extrabold text-transparent ">
                 <TypeAnimation
                   style={{
@@ -76,10 +79,7 @@ const FortuneView = () => {
                     display: "block",
                   }}
                   className="lg:h-[100px] lg:text-4xl "
-                  sequence={[
-                    predictionText,
-                    1000,
-                  ]}
+                  sequence={[predictionText, 1000]}
                 />
               </p>
             )}
