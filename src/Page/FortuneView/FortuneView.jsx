@@ -78,7 +78,7 @@ const FortuneView = () => {
                     height: "100px",
                     display: "block",
                   }}
-                  className="lg:h-[100px] lg:text-6xl "
+                  className="lg:h-[100px] lg:text-6xl pb-6 "
                   sequence={[predictionText, 1000]}
                 />
               </p>
