@@ -71,14 +71,14 @@ const FortuneView = () => {
             
 
             {predictionText && (
-              <p className=" w-[100%] textgradient text-xl md:text-3xl lg:text-4xl emad bg-gradient-to-t from-[#eb475c] to-[#fba209] bg-clip-text font-extrabold text-transparent ">
+              <p className="py-4 w-[100%] textgradient text-[60px] emad bg-gradient-to-t from-[#eb475c] to-[#fba209] bg-clip-text font-extrabold text-transparent ">
                 <TypeAnimation
                   style={{
                     whiteSpace: "pre-line",
                     height: "100px",
                     display: "block",
                   }}
-                  className="lg:h-[100px] lg:text-4xl "
+                  className="lg:h-[100px] lg:text-6xl "
                   sequence={[predictionText, 1000]}
                 />
               </p>

@@ -6,6 +6,6 @@ const getRandomNumber = () => {
 };
   
 const getRandomPrediction = () => {
-  return Math.floor(Math.random() * 24) ;
+  return Math.floor(Math.random() * 29) + 1;
 }
 export {getRandomNumber,getRandomPrediction};
