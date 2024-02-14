@@ -14,7 +14,7 @@ const FortuneView = () => {
 
   useEffect(() => {
     logMovies();
-    
+    console.log("name = " ,name)
   }, [name]);
 
   async function logMovies() {

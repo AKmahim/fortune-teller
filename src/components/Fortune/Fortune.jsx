@@ -12,15 +12,22 @@ const Fortune = () => {
   const [fortuneURL, setFortuneURL] = useState("");
   const [cardImage, setCardImage] = useState("");
   const [cardImageNumber, setCardImageNumber] = useState();
+  const [wrongMsg, setWrongMsg] = useState(true);
 
   const handleChange = (e) => {
     e.preventDefault();
     const code = e.target.code.value;
-    
-    console.log(getIdFromCode(code));
-    e.target.code.value = "";
-    navigate("/fortune-view");
-    
+
+    console.log("getIdFromCode => ", getIdFromCode(code));
+
+    if (getIdFromCode(code) === cardNumber) {
+      setWrongMsg(true);
+      navigate("/fortune-view");
+      e.target.code.value = "";
+    } else {
+      setWrongMsg(false);
+      e.target.code.value = "";
+    }
   };
   useEffect(() => {
     fetch("https://sunquick-scoreboard.xri.com.bd/fortune-teller/last-user")
@@ -54,20 +61,60 @@ const Fortune = () => {
               <img src={name} className="w-1/4 mx-auto z-30" alt="brandName" />
             </div>
 
-            
             <div className="relative mx-auto mt-2">
               {cardImageNumber ? (
-                <img
-                  src={`/card-${cardImageNumber}.png`}
-                  className="w-[20%] mx-auto "
-                  alt="Card"
-                />
+                <>
+                  {!wrongMsg ? (
+                    <div
+                      className="inline-block bg-gradient-to-t from-[#400c43] to-[#820d96] p-4 mb-4 text-sm text-red-800 border border-red-300 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400 dark:border-red-800"
+                      role="alert"
+                    >
+                      <svg
+                        className="flex-shrink-0 inline w-4 h-4 me-3"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+                      </svg>
+                      <span className="sr-only">Info</span>
+                      <div className="inline">
+                        <span className="font-medium">You Pick A Wrong Card!</span>
+                      </div>
+                    </div>
+                  ) : (
+                    <div
+                      className="inline-block bg-gradient-to-t from-[#400c43] to-[#820d96] p-4 mb-4 text-sm text-blue-800 border border-blue-300 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400 dark:border-blue-800"
+                      role="alert"
+                    >
+                      <svg
+                        className="flex-shrink-0 inline w-4 h-4 me-3"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+                      </svg>
+                      <span className="sr-only">Info</span>
+                      <div className="inline">
+                        <span className="font-medium">Please Enter Your Card!</span>
+                      </div>
+                    </div>
+                  )}
+                  <img
+                    src={`/card-${cardImageNumber}.png`}
+                    className="w-[15%] mx-auto "
+                    alt="Card"
+                  />
+                </>
               ) : (
                 <div
                   role="status"
                   className="space-y-8 animate-pulse md:space-y-0 md:space-x-8 rtl:space-x-reverse md:flex md:items-center"
                 >
-                  <div className="flex items-center justify-center w-[20%] xl:h-96 lg:h-80 md:h-60 h-40 mx-auto bg-gray-300 rounded  dark:bg-gray-700">
+                  <div className="flex items-center justify-center w-[15%] lg:h-80 md:h-60 h-40 mx-auto bg-gray-300 rounded  dark:bg-gray-700">
                     <svg
                       className="w-60 h-40 text-gray-200 dark:text-gray-600"
                       aria-hidden="true"
