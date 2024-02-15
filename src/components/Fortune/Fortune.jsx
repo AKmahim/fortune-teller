@@ -61,7 +61,7 @@ const Fortune = () => {
         </form>
         <div className=" mx-auto max-w-screen-xl px-4  flex h-screen items-center">
           <div className="mx-auto  max-w-7xl text-center ">
-            <div className="relative mx-auto  mt-20">
+            <div className="relative mx-auto  mt-20 element">
               <img
                 src={tia}
                 className="w-1/4 mx-auto emad absolute -top-28 right-[47%] "
@@ -171,7 +171,7 @@ const Fortune = () => {
 
         <img
           src={logo}
-          className=" lg:w-28 md:w-20 w-12 absolute bottom-8 right-12 element"
+          className=" lg:w-28 md:w-20 w-12 absolute bottom-8 right-12 "
           alt="logo"
         />
       </section>

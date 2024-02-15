@@ -12,6 +12,7 @@ import Home from './components/Home/Home.jsx';
 import Fortune from './components/Fortune/Fortune.jsx';
 import Register from './Page/Register/Register.jsx';
 import FortuneView from './Page/FortuneView/FortuneView.jsx';
+// import 'index.css';
 
 const router = createBrowserRouter([
   {

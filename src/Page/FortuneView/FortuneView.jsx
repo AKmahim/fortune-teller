@@ -49,7 +49,7 @@ const FortuneView = () => {
       <section className="relative bg-[#F4ECE1] bg-[url('/src/assets/bg-1.png')] bg-cover bg-center bg-no-repeat bgbg bg-fixed">
         <div className="mx-auto max-w-screen-xl px-4  flex h-screen items-center">
           <div className="mx-auto max-w-7xl text-center ">
-            <div className="relative mx-auto  mt-20">
+            <div className="relative mx-auto  mt-20 element">
               <img
                 src={tia}
                 className="  lg:w-1/3 md:w-1/2 w-[70%] mx-auto emad absolute lg:-top-28 xl:-top-36 right-[47%] "
@@ -87,7 +87,7 @@ const FortuneView = () => {
 
         <img
           src={logo}
-          className=" lg:w-28 md:w-20 w-12 absolute bottom-8 right-12 element"
+          className=" lg:w-28 md:w-20 w-12 absolute bottom-8 right-12 "
           alt="logo"
         />
       </section>
