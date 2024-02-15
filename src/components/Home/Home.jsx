@@ -50,7 +50,7 @@ const Home = () => {
     return (
         <div className="full-screen-video">
             <video ref={videoRef} autoPlay loop muted>
-                <source src='banner-video.mp4' type="video/mp4" /> 
+                <source src='banner-video-2.mp4' type="video/mp4" /> 
                 Your browser does not support the video tag.
             </video>
         </div>

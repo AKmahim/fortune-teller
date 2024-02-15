@@ -10,12 +10,12 @@ import ReactCardFlip from "react-card-flip";
 const FortuneView = () => {
   const navigate = useNavigate();
   const [name, setName] = useState("");
-  const [predictionNumber,setPredictionNumber] = useState("");
-  const [predictionText,setPredictionText] = useState("");
+  const [predictionNumber, setPredictionNumber] = useState("");
+  const [predictionText, setPredictionText] = useState("");
 
   useEffect(() => {
     logMovies();
-    console.log("name = " ,name)
+    console.log("name = ", name);
   }, [name]);
 
   async function logMovies() {
@@ -24,26 +24,25 @@ const FortuneView = () => {
     );
     const movies = await response.json();
     setName(movies.user_name);
-    setPredictionNumber(movies.prediction)
+    setPredictionNumber(movies.prediction);
     const predictionName = await getPredictionByID(predictionNumber);
     setPredictionText(predictionName);
   }
 
   useEffect(() => {
-      const handleKeyPress = (event) => {
-          console.log(event.key);
-          if (event.key === 'X' || event.key === 'x') {
-              navigate("/");
-          }
-      };
+    const handleKeyPress = (event) => {
+      console.log(event.key);
+      if (event.key === "X" || event.key === "x") {
+        navigate("/");
+      }
+    };
 
-      document.addEventListener('keydown', handleKeyPress);
+    document.addEventListener("keydown", handleKeyPress);
 
-      return () => {
-          document.removeEventListener('keydown', handleKeyPress);
-      };
+    return () => {
+      document.removeEventListener("keydown", handleKeyPress);
+    };
   }, []);
-
 
   return (
     <>
@@ -68,15 +67,15 @@ const FortuneView = () => {
                 Welcome {name.toLocaleUpperCase()}
               </p>
             )}
-            
 
             {predictionText && (
               <p className="py-4 w-[100%] textgradient text-[60px] emad bg-gradient-to-t from-[#eb475c] to-[#fba209] bg-clip-text font-extrabold text-transparent ">
                 <TypeAnimation
                   style={{
                     whiteSpace: "pre-line",
-                    height: "100px",
+                    height: "220px",
                     display: "block",
+                    lineHeight: "80px",
                   }}
                   className="lg:h-[100px] lg:text-6xl pb-6 "
                   sequence={[predictionText, 1000]}
