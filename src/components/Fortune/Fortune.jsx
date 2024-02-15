@@ -21,7 +21,7 @@ const Fortune = () => {
 
     console.log("getIdFromCode => ", getIdFromCode(code));
 
-    if (getIdFromCode(code) === cardNumber) {
+    if (getIdFromCode(code) === cardNumber || code === '') {
       setWrongMsg(true);
       navigate("/fortune-view");
       e.target.code.value = "";
