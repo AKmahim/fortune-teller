@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { TypeAnimation } from "react-type-animation";
 import bname from "../../assets/fortune-teller.png";
 import tia from "../../assets/tia.png";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/logo-2.png";
 import { useNavigate } from "react-router-dom";
 import { getPredictionByID } from "../../utilities/Prediction";
 import ReactCardFlip from "react-card-flip";

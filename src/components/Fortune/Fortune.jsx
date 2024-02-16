@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/logo-2.png";
 import name from "../../assets/fortune-teller.png";
 import tia from "../../assets/tia.png";
 import { useNavigate } from "react-router-dom";
